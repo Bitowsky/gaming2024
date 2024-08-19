@@ -1,0 +1,25 @@
+{
+    "c2dictionary": true,
+    "data": {
+        "OCD_moves_level1": 99999,
+        "OCD_time_level1": 99999,
+        "OCD_moves_level2": 99999,
+        "OCD_time_level2": 99999,
+        "OCD_moves_level3": 99999,
+        "OCD_time_level3": 99999,
+        "OCD_moves_level4": 99999,
+        "OCD_time_level4": 99999,
+        "OCD_moves_level5": 99999,
+        "OCD_time_level5": 99999,
+        "OCD_moves_level6": 99999,
+        "OCD_time_level6": 99999,
+        "OCD_moves_level7": 99999,
+        "OCD_time_level7": 99999,
+        "OCD_moves_level8": 99999,
+        "OCD_time_level8": 99999,
+        "OCD_moves_level9": 99999,
+        "OCD_time_level9": 99999,
+        "OCD_moves_level10": 99999,
+        "OCD_time_level10": 99999
+    }
+}
