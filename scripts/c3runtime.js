@@ -7095,6 +7095,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
 		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
 		C3.Plugins.Function.Cnds.OnFunction,
+		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.Sprite.Acts.ToggleBoolInstanceVar,
 		C3.Plugins.Sprite.Cnds.PickByUID,
 		C3.Plugins.Sprite.Acts.SetPos,
@@ -7109,9 +7110,15 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Rex_ShakeMod.Acts.Start,
 		C3.Behaviors.Rex_ShakeMod.Acts.Stop,
 		C3.Plugins.Sprite.Cnds.IsOverlappingOffset,
-		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.NinePatch.Acts.Destroy,
+		C3.Plugins.Sprite.Acts.SetSolidCollisionFilter,
+		C3.Plugins.Sprite.Exps.LayerNumber,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
+		C3.Plugins.Sprite.Acts.SetWidth,
+		C3.Plugins.Sprite.Exps.ImageWidth,
+		C3.Plugins.Sprite.Exps.ImagePointX,
+		C3.Behaviors.Sin.Exps.Value,
+		C3.Plugins.Sprite.Exps.ImagePointY,
 		C3.Behaviors.Platform.Acts.SimulateControl,
 		C3.Behaviors.Platform.Cnds.IsByWall,
 		C3.Plugins.Sprite.Acts.SetSize,
@@ -7120,8 +7127,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Pin.Acts.PinByProperties,
 		C3.Plugins.Sprite.Cnds.OnCreated,
 		C3.Plugins.System.Cnds.EveryTick,
-		C3.Plugins.Sprite.Exps.ImagePointX,
-		C3.Plugins.Sprite.Exps.ImagePointY,
 		C3.Plugins.System.Cnds.CompareVar,
 		C3.Plugins.System.Cnds.TriggerOnce,
 		C3.Plugins.System.Acts.SetVar,
@@ -7208,11 +7213,15 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.layoutheight,
 		C3.Behaviors.Physics.Acts.SetWorldGravity,
 		C3.Plugins.Sprite.Acts.SetVisible,
+		C3.Plugins.System.Cnds.Repeat,
+		C3.Plugins.System.Acts.AddLayer,
+		C3.Plugins.System.Exps.loopindex,
+		C3.Plugins.System.Acts.SetLayerParallax,
 		C3.Plugins.Function.Acts.CallFunction,
-		C3.Plugins.Sprite.Acts.SetSolidCollisionFilter,
 		C3.Plugins.NinePatch.Acts.SetEffectParam,
 		C3.Plugins.System.Exps.rgbex255,
 		C3.Plugins.System.Exps.random,
+		C3.Plugins.System.Exps.replace,
 		C3.Behaviors.Timer.Acts.StartTimer,
 		C3.Behaviors.Timer.Cnds.OnTimer,
 		C3.Plugins.Sprite.Cnds.IsOverlapping,
@@ -7229,7 +7238,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.choose,
 		C3.Plugins.Sprite.Acts.SetAnim,
 		C3.Behaviors.Physics.Acts.SetEnabled,
-		C3.Plugins.Sprite.Exps.ImageWidth,
 		C3.Plugins.Sprite.Exps.ImageHeight,
 		C3.Plugins.Sprite.Acts.MoveToLayer,
 		C3.Plugins.Text.Acts.MoveToLayer,
@@ -7240,7 +7248,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Timeline.Acts.PlayTimelineByName,
 		C3.Plugins.Text.Acts.SetAngle,
 		C3.Plugins.Text.Acts.TypewriterText,
-		C3.Plugins.System.Exps.replace,
 		C3.Plugins.AJAX.Acts.RequestFile,
 		C3.Plugins.AJAX.Cnds.OnComplete,
 		C3.Plugins.Rex_CSV.Acts.LoadCSV,
@@ -7255,7 +7262,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Sin.Acts.SetMovement,
 		C3.Behaviors.Sin.Acts.SetEnabled,
 		C3.Plugins.Particles.Acts.ZMoveToObject,
-		C3.Behaviors.Sin.Exps.Value,
 		C3.Behaviors.Pin.Exps.PinnedUID,
 		C3.Plugins.Particles.Acts.SetEffectParam,
 		C3.Plugins.Particles.Acts.SetSpraying,
@@ -7267,9 +7273,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.SubVar,
 		C3.Plugins.Sprite.Acts.Destroy,
 		C3.Plugins.Sprite.Acts.SetX,
-		C3.Plugins.System.Cnds.Repeat,
-		C3.Plugins.System.Acts.SetLayerParallax,
-		C3.Plugins.System.Exps.loopindex,
 		C3.Plugins.System.Exps.scrollx,
 		C3.Plugins.System.Exps.scrolly,
 		C3.Plugins.Text.Acts.SetInstanceVar,
@@ -7307,7 +7310,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Audio.Acts.Stop,
 		C3.Plugins.Dictionary.Exps.Get,
 		C3.Plugins.Sprite.Acts.MoveToTop,
-		C3.Plugins.Sprite.Acts.SetWidth,
 		C3.Plugins.Spritefont2.Acts.SetScale,
 		C3.Plugins.Spritefont2.Acts.SetText,
 		C3.Plugins.Spritefont2.Acts.SetEffectParam,
@@ -7440,6 +7442,9 @@ self.C3_JsPropNameTable = [
 	{orWidth: 0},
 	{orHeight: 0},
 	{canBeScaled: 0},
+	{customLimit: 0},
+	{customMin: 0},
+	{customMax: 0},
 	{limitedUse: 0},
 	{limitLeft: 0},
 	{Solid: 0},
@@ -7465,17 +7470,23 @@ self.C3_JsPropNameTable = [
 	{bm_ocd: 0},
 	{bm_ocd_txt: 0},
 	{ocd_screenText: 0},
+	{bm_back: 0},
+	{bm_back_txt: 0},
 	{flipState: 0},
 	{floorSpike_base: 0},
 	{up: 0},
 	{floorSpike_spike: 0},
-	{Sprite4: 0},
+	{floorSpike_cog: 0},
+	{floorSpike_face: 0},
 	{readyToDie: 0},
 	{ShakeMod: 0},
 	{breakblock: 0},
 	{awake: 0},
 	{mirrorNumb: 0},
 	{cowBlock: 0},
+	{cowBlock_legL: 0},
+	{cowBlock_legR: 0},
+	{cowBlock_head: 0},
 	{Function: 0},
 	{TiledBackground: 0},
 	{Mouse: 0},
@@ -7508,6 +7519,7 @@ self.C3_JsPropNameTable = [
 	{LocalStorage: 0},
 	{Video: 0},
 	{Text2: 0},
+	{levelName: 0},
 	{scalables: 0},
 	{f_texts: 0},
 	{f_signs: 0},
@@ -7522,6 +7534,8 @@ self.C3_JsPropNameTable = [
 	{MG_LENSSIZE_STARTSET: 0},
 	{MG_LENSSIZE_MIN: 0},
 	{MG_LENSSIZE_MAX: 0},
+	{MG_LENSSIZE_MIN_SET: 0},
+	{MG_LENSSIZE_MAX_SET: 0},
 	{MG_LENSSIZE_MOUSEDISTANCE: 0},
 	{MG_LENS_ACTIVE: 0},
 	{MG_CORRECT_X: 0},
@@ -7681,11 +7695,17 @@ self.InstanceType = {
 	bm_ocd: class extends self.ISpriteInstance {},
 	bm_ocd_txt: class extends self.ITextInstance {},
 	ocd_screenText: class extends self.ITextInstance {},
+	bm_back: class extends self.ISpriteInstance {},
+	bm_back_txt: class extends self.ITextInstance {},
 	floorSpike_base: class extends self.ISpriteInstance {},
 	floorSpike_spike: class extends self.ISpriteInstance {},
-	Sprite4: class extends self.ISpriteInstance {},
+	floorSpike_cog: class extends self.ISpriteInstance {},
+	floorSpike_face: class extends self.ISpriteInstance {},
 	breakblock: class extends self.IWorldInstance {},
 	cowBlock: class extends self.ISpriteInstance {},
+	cowBlock_legL: class extends self.ISpriteInstance {},
+	cowBlock_legR: class extends self.ISpriteInstance {},
+	cowBlock_head: class extends self.ISpriteInstance {},
 	Function: class extends self.IInstance {},
 	TiledBackground: class extends self.ITiledBackgroundInstance {},
 	Mouse: class extends self.IInstance {},
@@ -7718,6 +7738,7 @@ self.InstanceType = {
 	LocalStorage: class extends self.IInstance {},
 	Video: class extends self.IWorldInstance {},
 	Text2: class extends self.ITextInstance {},
+	levelName: class extends self.ITextInstance {},
 	scalables: class extends self.ISpriteInstance {},
 	f_texts: class extends self.ITextInstance {},
 	f_signs: class extends self.ISpriteInstance {},
@@ -7832,6 +7853,7 @@ self.C3_ExpressionFuncs = [
 		() => 0,
 		() => "",
 		() => "CHAR_JUMP",
+		() => 0.02,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar();
@@ -7856,21 +7878,54 @@ self.C3_ExpressionFuncs = [
 			return () => C3.lerp(n0.ExpObject(), 0, 0.3);
 		},
 		() => -15,
-		() => 0.02,
 		() => 1,
 		() => 30,
+		() => "spikes",
+		() => "legL",
+		() => "legR",
+		() => "headR",
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => (n0.ExpObject() * n1.ExpInstVar());
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => (n0.ExpObject("legL") + n1.ExpBehavior());
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => (n0.ExpObject("legR") + n1.ExpBehavior());
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => (n0.ExpObject("headR") + n1.ExpBehavior());
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => (n0.ExpObject("headL") + n1.ExpBehavior());
+		},
 		() => -1,
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
-			return () => C3.lerp(n0.ExpObject(), n1.ExpInstVar_Family(), 0.05);
+			return () => C3.lerp(n0.ExpObject(), n1.ExpInstVar_Family(), 0.1);
 		},
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
 			const n2 = p._GetNode(2);
 			const n3 = p._GetNode(3);
-			return () => C3.lerp(n0.ExpObject(), (n1.ExpInstVar_Family() * (n2.ExpObject() / n3.ExpInstVar_Family())), 0.05);
+			return () => C3.lerp(n0.ExpObject(), (n1.ExpInstVar_Family() * (n2.ExpObject() / n3.ExpInstVar_Family())), 0.1);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => C3.lerp(n0.ExpObject(), n1.ExpInstVar_Family(), 0.05);
 		},
 		() => "mg_radial",
 		() => -9999,
@@ -7942,6 +7997,10 @@ self.C3_ExpressionFuncs = [
 			return () => v0.GetValue();
 		},
 		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpInstVar_Family();
+		},
+		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => (f0() % 6);
 		},
@@ -8001,10 +8060,6 @@ self.C3_ExpressionFuncs = [
 			return () => f0("MOUSE_NP");
 		},
 		() => "onlyGrowBigger",
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpInstVar_Family();
-		},
 		() => "onlyGrowSmaller",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -8149,6 +8204,23 @@ self.C3_ExpressionFuncs = [
 			const v2 = p._GetNode(2).GetVar();
 			return () => f0(n1.ExpObject("CAMERA_LEVELFOCUS", ("level" + (v2.GetValue()).toString())));
 		},
+		() => 5,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => ("bg_" + ((f0() + 1)).toString());
+		},
+		() => "bg",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => (5 * (f0() + 1));
+		},
+		() => "bg_1",
+		() => 960,
+		() => 540,
+		() => "bg_2",
+		() => "bg_3",
+		() => "bg_4",
+		() => "bg_5",
 		() => "LEVEL_START",
 		() => "test",
 		() => "Tint",
@@ -8161,6 +8233,26 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "Brightness",
 		() => 70,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			const v2 = p._GetNode(2).GetVar();
+			const v3 = p._GetNode(3).GetVar();
+			const n4 = p._GetNode(4);
+			const v5 = p._GetNode(5).GetVar();
+			const n6 = p._GetNode(6);
+			const v7 = p._GetNode(7).GetVar();
+			return () => and((((("[lineThickness=5][outlineBack=black]" + f0(n1.ExpObject(v2.GetValue(), "LevelNumber"), "{0}", (("[color=#ffffff]" + (v3.GetValue()).toString()) + "[/color]"))) + "\n") + "[size=50][color=#9900ff]") + "\n"), n4.ExpObject(v5.GetValue(), n6.ExpObject("LEVEL_NAME", ("level" + (v7.GetValue()).toString()))));
+		},
+		() => 3,
+		() => "def levelNameOut",
+		() => 1500,
+		() => 1.1,
+		() => "def levelNameOut3",
+		() => 1900,
+		() => 1.5,
+		() => "def levelNameOut2",
+		() => 50,
 		() => "LEVEL_TIME",
 		p => {
 			const n0 = p._GetNode(0);
@@ -8206,11 +8298,9 @@ self.C3_ExpressionFuncs = [
 			const v4 = p._GetNode(4).GetVar();
 			return () => ((C3.lerp(v0.GetValue(), v1.GetValue(), v2.GetValue()) + v3.GetValue()) + v4.GetValue());
 		},
-		() => "bg",
 		() => "platforms",
 		() => "signs",
 		() => "signsOVER",
-		() => "spikes",
 		() => "GAMEOVER_SCREEN",
 		p => {
 			const n0 = p._GetNode(0);
@@ -8230,7 +8320,7 @@ self.C3_ExpressionFuncs = [
 		() => "hurt",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
-			return () => (v0.GetValue() - 15);
+			return () => (v0.GetValue() - 25);
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -8242,11 +8332,10 @@ self.C3_ExpressionFuncs = [
 		() => "lost",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
-			return () => (v0.GetValue() - 5);
+			return () => (v0.GetValue() - 15);
 		},
 		() => "def deathFX",
 		() => 5000,
-		() => 1.5,
 		() => 0.1,
 		() => "def deathPlayerSpin",
 		p => {
@@ -8416,10 +8505,6 @@ self.C3_ExpressionFuncs = [
 			return () => f0(and("[lineThickness=5][outlineBack=black]", n1.ExpObject(v2.GetValue(), "MenuDisc")), "\\n", "\n");
 		},
 		() => 4,
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => ("bg_" + ((f0() + 1)).toString());
-		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => ((f0() + 1) * 3);
@@ -8748,7 +8833,6 @@ self.C3_ExpressionFuncs = [
 			const n1 = p._GetNode(1);
 			return () => (n0.ExpObject() + (n1.ExpObject() / 2));
 		},
-		() => 3,
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject("up");
@@ -8877,6 +8961,11 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			const v1 = p._GetNode(1).GetVar();
 			return () => and("  [lineThickness=5][outlineBack=black]", n0.ExpObject(v1.GetValue(), "BurgerMenuOCD"));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => and("  [lineThickness=5][outlineBack=black]", n0.ExpObject(v1.GetValue(), "BurgerMenuQuit"));
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
